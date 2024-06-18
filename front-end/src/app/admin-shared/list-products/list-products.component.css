@@ -1,0 +1,34 @@
+.title{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.description{
+    max-width: 200px; /* Cambia este valor según el tamaño deseado */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: justify;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* .boton{
+    background: #FF8D47;
+    color: white;
+    border-color: black;
+    border-width: 1px 0px 1px 0px;
+} */

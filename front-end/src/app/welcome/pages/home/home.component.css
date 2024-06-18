@@ -1,0 +1,37 @@
+.video-container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.video-container video {
+  width: 100%;
+  position: relative;
+  padding-bottom: 0px;
+}
+
+.link {
+  position: absolute;
+  top: 100px;
+  /* Ajusta según la posición vertical deseada */
+  left: 20px;
+  /* Ajusta según la posición horizontal deseada */
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: underline;
+  font-size: 25px;
+  font-style: italic;
+}
+
+h3 {
+  position: relative;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+  letter-spacing: 2px;
+  transition: 1.5s;
+  text-decoration: none;
+  padding: 20px;
+  text-align: left;
+}

@@ -1,0 +1,73 @@
+<!--Plantilla para Email-->
+<div class="container1">
+    <div><button class="btn-dark botonTemplate" (click)="redirectTemplateToHome()"><i
+                class="fa-solid fa-house casa"></i></button></div>
+    <div class="container2">
+        <div class="cuadro1" style="background-color: white; margin-top: 50px;">
+            <p style="text-align: center;" class="name-customer">Hola! {{username}} </p>
+            <p style="text-align: justify; font-size: 18px;">¡Gracias por elegir <b>Create Shop!</b> Tu compra en
+                nuestra tienda virtual significa mucho para nosotros. Esperamos que disfrutes de tus productos tanto
+                como nosotros disfrutamos ofrecértelos.</p>
+            <div style="text-align: center;"><img src="../../../../assets/foto1.png" alt="foto1" class="foto1"></div>
+        </div>
+    </div><br><br>
+
+    <h1 style="text-align: center;" class="createShop">CREATE SHOP</h1>
+    <div class="container3">
+        <div>
+            <div class="cuadro2" style="background-color: white;">
+                <div>
+                    <img src="../../../../assets/mensajero.png" class="imagenDireccion">
+                </div>
+                <div>
+                    <b>
+                        <p style="text-align: center; font-size: 20px;">Dirección de entrega del pedido</p>
+                    </b>
+                    <p style="text-align: justify; font-size: 18px; margin-left: 20px;">Esta es la dirección que usted
+                        proporcionó para la entrega de la compra.</p>
+                    <p
+                        style="text-align: justify; margin-left: 20px; font-weight: bold; color: rgb(25, 43, 134); font-size: 20px;">
+                        {{customerAddress}}</p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container4">
+        <div style="background-color: white;">
+            <b>
+                <p style="text-align: center; font-size: 20px;">A continuación, le presentamos un resumen de su pedido.
+                </p>
+                <br>
+                <h1 style="text-align: center;">Resumen del pedido</h1>
+            </b>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Decripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of cartProducts" class="table-light">
+                        <td style="border: 1px solid #dddddd;"><img src="{{ product.url }}" alt="{{ product.title }}"
+                                style="max-width: 100px; max-height: 100px;"></td>
+                        <td style="border: 1px solid #dddddd;">{{product.title}}</td>
+                        <td style="border: 1px solid #dddddd; text-align: justify;" class="description">
+                            {{product.descrip}}</td>
+                        <td style="border: 1px solid #dddddd;">{{ product.price | currency }}</td>
+                        <td style="text-align: center; border: 1px solid #dddddd;">{{ product.cantidad }}</td>
+                        <td style="border: 1px solid #dddddd;">{{ product.price * product.cantidad | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a style="font-size: 20px;"><b>Valor total: {{totalOrder}}</b></a>
+        </div>
+    </div>
+    <b><h1 class="thanks" >GRACIAS POR SU COMPRA</h1></b>
+    <p style="text-align: justify; font-size: 18px; color: red; text-align: center; background-color: white;"> Le agradecemos que por favor <b>verifique su correo electrónico</b> para obtener más detalles.</p>
+</div>

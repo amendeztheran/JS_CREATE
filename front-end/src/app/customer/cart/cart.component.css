@@ -1,0 +1,122 @@
+.productCart-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    max-height: 500px;
+    /* Altura máxima del contenedor */
+    overflow-y: auto;
+}
+
+.productCart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* Asegura que los elementos ocupen todo el ancho */
+    margin-bottom: 1rem;
+    /* Espacio entre elementos */
+}
+
+.product-body {
+    flex-basis: 50%;
+}
+
+.productCart-total {
+    flex-basis: 20%;
+}
+
+.productCart-buttons {
+    flex-basis: 30%;
+}
+
+.product-body-info {
+    display: flex;
+    gap: 1rem;
+}
+
+.productCart-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.productCart-buttons-operators {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.productCart-buttons-operators span {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.cartTotal {
+    padding: 1rem;
+}
+
+.cartTotal-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.cart-btn {
+    width: 50%;
+    align-self: center;
+    border: none;
+    border-radius: 0.25rem;
+    margin: 0.75rem 0;
+    background-color: #030301;
+    color: #fff;
+    cursor: pointer;
+    padding: 1rem;
+    margin-top: 1rem;
+    /* Espacio entre el total del carrito y el botón */
+}
+
+/*Ventana email*/
+.email {
+    display: none;
+    /*No mostrar ventana hasta dar click al boton ir a pagar*/
+}
+
+.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: fixed;
+    border-radius: 0.5rem;
+    top: 50%;
+    /* Centra verticalmente */
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
+    /*Ajusta la posición al centro exacto */
+    width: 70%;
+    height: 90%;
+}
+
+.email-inner {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(218, 218, 218);
+    padding: 2rem;
+    max-width: 85%;
+    /* Ajusta el ancho máximo */
+    max-height: 95%;
+    /* Ajusta la altura máxima */
+    overflow: auto;
+    /* Habilita el desplazamiento si el contenido es demasiado grande */
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    /* Ajusta la posición desde el borde superior */
+    right: 0.5rem;
+    /* Ajusta la posición desde el borde derecho */
+}

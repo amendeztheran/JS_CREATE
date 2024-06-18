@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="row mt-2">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card bg-light mb-3" style="max-width: 25rem;">
+            <div class="card-header text-center">{{ operacion }} producto</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="addProduct()">
+
+                    <input formControlName="title" type="text" class="form-control" placeholder="Nombre del producto">
+                    <span class="error-message"
+                        *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched"> El campo nombre
+                        es <strong>requerido</strong></span>
+
+                    <input formControlName="descrip" type="text" class="form-control mt-2" placeholder="Descripción">
+                    <span class="error-message"
+                        *ngIf="form.get('descrip')?.hasError('required') && form.get('descrip')?.touched"> El campo
+                        descripción es <strong>requerido</strong></span>
+
+                    <input formControlName="brand_product" type="number" class="form-control mt-2"
+                        placeholder="Marca del producto">
+                    <span class="error-message"
+                        *ngIf="form.get('brand_product')?.hasError('required') && form.get('brand_product')?.touched">
+                        El campo marca es <strong>requerido</strong></span>
+
+                    <input formControlName="color" type="number" class="form-control mt-2" placeholder="Color">
+                    <span class="error-message"
+                        *ngIf="form.get('color')?.hasError('required') && form.get('color')?.touched"> El campo color es
+                        <strong>requerido</strong></span>
+
+                    <input formControlName="quantify" type="number" class="form-control mt-2" placeholder="Cantidad">
+                    <span class="error-message"
+                        *ngIf="form.get('quantify')?.hasError('required') && form.get('quantify')?.touched"> El campo
+                        cantidad es <strong>requerido</strong></span>
+
+                    <input formControlName="price" type="number" class="form-control mt-2" placeholder="Precio">
+                    <span class="error-message"
+                        *ngIf="form.get('price')?.hasError('required') && form.get('price')?.touched"> El campo precio
+                        es <strong>requerido</strong></span>
+
+                    <input formControlName="stock" type="number" class="form-control mt-2" placeholder="Stock">
+                    <span class="error-message"
+                        *ngIf="form.get('stock')?.hasError('required') && form.get('stock')?.touched"> El campo stock es
+                        <strong>requerido</strong></span>
+
+                    <input formControlName="category" type="number" class="form-control mt-2" placeholder="Categoria">
+                    <span class="error-message"
+                        *ngIf="form.get('category')?.hasError('required') && form.get('category')?.touched"> El campo
+                        categoria es <strong>requerido</strong></span>
+
+                    <input formControlName="size" type="number" class="form-control mt-2" placeholder="Talla">
+                    <span class="error-message"
+                        *ngIf="form.get('size')?.hasError('required') && form.get('size')?.touched"> El campo talla es
+                        <strong>requerido</strong></span>
+
+                    <input formControlName="url" type="text" class="form-control mt-2" placeholder="url">
+                    <span class="error-message"
+                        *ngIf="form.get('url')?.hasError('required') && form.get('url')?.touched"> El campo url es
+                        <strong>requerido</strong></span>
+
+                    <div class="row mt-2 text-center">
+                        <div routerLink="/admin/crudproducts" class="col-lg-6"><button type="button"
+                                class="btn btn-light">Volver</button></div>
+                        <div class="col-lg-6"><button [disabled]="form.invalid" type="submit" class="btn btn-success">{{
+                                botonOperacion }}</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<header>
+  <nav (scroll)="onscroll()" [ngClass]="{'navbarup':up,'navbardown':!up}">
+
+    <!-- logo -->
+    <a [ngClass]="{'logoup':up,'logodown':!up}" routerLink="/">CREATE SHOP</a>
+
+    <ul>
+      <!--Search-->
+      <input aria-label="Search" type="search" placeholder="Buscar producto" data-ms-editor="true"
+        class="form-control ms-auto input-search" (keyup.enter)="loadSearch()" [(ngModel)]="search">
+
+      <!-- No borrar:  Keyup: Cuando se escribe algo escucha los cambios, es un metodo "loadProducts". -->
+      &nbsp;<!--Espacios-->
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+
+      <!-- Carrito -->
+      <li class="cart">
+        <div class="cart-items">
+          <p>{{getcartsize()}}</p>
+        </div>
+        <a [ngClass]="{'linkup':up,'linkdown':!up}" (click)="onToggleCart($event)">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+      </li>
+      <!-- -- -->
+      <!-- routerLink='auth/login' -->
+      <li *ngIf="!isLoggedIn"><a [ngClass]="{'linkup':up,'linkdown':!up}" (click)="loginpage()"><i
+            class="fa-solid fa-user"></i></a></li>
+      <li *ngIf="isLoggedIn"><a [ngClass]="{'linkup':up,'linkdown':!up}">Hello {{username}}!</a></li>
+      <li *ngIf="isLoggedIn"><a [ngClass]="{'linkup':up,'linkdown':!up}" (click)="logout()"><i
+            class="fa-solid fa-right-from-bracket"></i></a></li>
+      <!-- No borrar: 
+        Editar perfil -->
+      <!--<li *ngIf="isLoggedIn"><a [ngClass]="{'linkup':up,'linkdown':!up}" routerLink='auth/profile'><i class="fa-solid fa-user-pen"></i></a></li>-->
+      <!--Barra de despliegue-->
+      <button class="abrir-menu" (click)="openMenu()">
+        <span [ngClass]="{'linkup':up,'linkdown':!up}"><i class="fa-solid fa-bars"></i></span>
+      </button>
+      <div class="menu" [ngClass]="{'visible':visible, 'invisible':!visible}">
+        <button class="cerrar-menu" (click)="closeMenu()"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="menu-list">
+          <li>
+            <a routerLink="/products">Todos los productos</a>
+          </li>
+          <li>
+            <a (click)="women()">Mujer</a>
+          </li>
+          <li>
+            <a (click)="men()">Hombre</a>
+          </li>
+        </ul>
+      </div>
+    </ul>
+  </nav>
+  <!-- componente del carrito de compras -->
+  <div [ngClass]="{ 'show' : viewCart, 'cart-list':!viewCart}">
+    <app-cart></app-cart>
+  </div>
+</header>

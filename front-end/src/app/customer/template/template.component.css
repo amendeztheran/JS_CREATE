@@ -1,0 +1,112 @@
+/*Cuadro 1*/
+.container1 {
+    background-color: black;
+    position: relative;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente el cuadro */
+    align-items: center;
+    /* Centra verticalmente el cuadro */
+    height: 100vh;
+    /* alto de la ventana */
+}
+
+.cuadro1 {
+    border: 1px solid black;
+    /* Define el grosor y el color del borde */
+    border-radius: 10%;
+    padding: 20px;
+    /* Define el relleno dentro del cuadro */
+    width: 600px;
+    /* Define el ancho del cuadro */
+}
+/*Letra personalizada*/
+@font-face {
+    font-family: inlove;
+    font-size: 200%;
+    src: url(./resources/inlove.ttf);
+}
+
+.name-customer {
+    font-family: inlove;
+    font-size: 350%;
+    color: black;
+}
+
+.foto1 {
+    width: 400px;
+    height: auto;
+}
+/*Cuadro 2: Dirección de entrega del pedido*/
+.createShop {
+    color: white;
+    height: auto;
+    font-size: 50px;
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente el cuadro */
+    align-items: center;
+    /* Centra verticalmente el cuadro */
+    height: 40vh;
+    /* alto de la ventana */
+}
+
+.cuadro2 {
+    display: flex;
+    border: 1px solid black;
+    /* Define el grosor y el color del borde */
+    padding: 20px;
+    /* Define el relleno dentro del cuadro */
+    width: 600px;
+    /* Define el ancho del cuadro */
+}
+
+.imagenDireccion {
+    width: 150px;
+    /* Define el ancho de la imagen */
+    height: auto;
+    /* Mantén la proporción de aspecto */
+}
+
+/*Cuadro 3: Tabla de resumen del pedido*/
+.container4 {
+    justify-content: center;
+    /* Centra horizontalmente el cuadro */
+    align-items: center;
+    /* Centra verticalmente el cuadro */
+    height: auto;
+    /* alto de la ventana */
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+    clear: both;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.thanks {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(177, 177, 177);
+    clear: both;
+    /* Limpiar flotadores */
+}
+
+/*Botón devolver a página principal*/
+.botonTemplate {
+    padding: 1%;
+    background-color: black;
+    border-radius: 10%;
+    margin-left: 4%;
+    margin-top: 3%;
+}

@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="container" *ngIf="loadedData">
+    <br>
+    <br>
+    <br>
+    <div class="image-container">
+        <img class="image" src="{{product.url}}">
+    </div>
+
+    <div class="content-container">
+        <!-- titulo -->
+        <h1> {{product.title}}</h1>
+        <!-- marca -->
+        <h4>{{product.name_brand}}</h4>
+        <!-- precio -->
+        <h2 class="mt-5">$ {{product.price}}</h2>
+        <!-- descripcion -->
+        <p>{{product.descrip}}</p>
+        <h2>Talla</h2>
+        <select (ngModel)="tallaSeleccionada" (change)="ontallaChange($event)">
+            <option value="{{talla}}" *ngFor="let talla of getTallasKeys()">{{talla}}</option>
+        </select>
+        <!-- cantidad -->
+        <h2>Cantidad</h2>
+        <div>
+            <button class="botonCantidad" (click)="numero = numero - 1" [disabled]="noNegative()">-</button>
+            <span>{{ numero }}</span>
+            <button class="botonCantidad" (click)="numero = numero + 1" [disabled]="exceedingStock(product)">+</button>
+        </div>
+        <!-- color -->
+        <h2 class="mt-3">Color</h2>
+        <div class="color-selector">
+            <div class="color-circle" *ngFor="let color of getColorKeys()" class="{{ color }}"
+                (click)="selectedColor(color)"></div>
+        </div>
+        <br>
+        <!-- añadir al carrito -->
+        <div class="d-flex justify-content-center">
+            <button class="btn btn boton" (click)="addToCart(product); sinStock()" [disabled]="caracteristicasOK">
+                <span class="cart-icon text-light"><i class="fa-solid fa-cart-shopping"></i></span>
+                Añade a la cesta
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="noStock" class="siHay">
+    <div class="popup">
+        <a (click)="cambiarEstado()" class="btn-cerrar-popup">
+            <i class='bx bx-x'></i>
+        </a>
+        <h3>Lo sentimos!</h3>
+        <p>No hay más unidades disponibles de este producto</p>
+    </div>
+</div>

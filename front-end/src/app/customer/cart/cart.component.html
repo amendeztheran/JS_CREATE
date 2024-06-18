@@ -1,0 +1,44 @@
+<div class="productCart-wrapper">
+    <article class="productCart" *ngFor="let product of myCart$ |async">
+        <img src="{{product.url}}" style="max-width: 50px; max-height: 50px; margin-right: 10px; align-items: center;">
+        <div class="product-body">
+            <p>{{product.title}}</p>
+            <div class="product-body-info">
+                <p>$ {{product.price}}</p>
+                <p>cantidad: {{product.cantidad}}</p>
+                <p>{{product.size}}</p>
+            </div>
+        </div>
+        <div class="productCart-total">
+            <p>$ {{totalProducts(product.price, product.cantidad)}} </p>
+        </div>
+        <div class="productCart-buttons">
+            <div class="productCart-buttons-operators">
+                <!-- se cambió a botones porque en los tipo texto, noe pueden implementar métodos -->
+                <button (click)="updateUnits('minus', product.id_product)">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+                <span>{{product.cantidad}}</span>
+                <button (click)="updateUnits('add', product.id_product)"
+                    [disabled]="!canAddUnitWithoutExceedingStock(product.id_product)">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+            <i class="fa-solid fa-trash" (click)="deleteProduct(product.id_product)"></i>
+        </div>
+    </article>
+    <div class="cartTotal">
+        <p class="cartTotal-total">Total: $ {{totalCart()}}</p>
+    </div>
+    <button class="cart-btn" (click)="onToggleEmail()">ir a pagar</button>
+</div>
+<!--Email-->
+<div class="email" [ngClass]="{'show' : viewEmail}">
+    <!--Cerrar la ventana-->
+    <div class="close-button p-2">
+        <button class="btn btn-light" (click)="closeModal()">X</button><!--Cerrar ventana-->
+    </div>
+    <div class="email-inner">
+        <app-email [viewEmail]="viewEmail"></app-email>
+    </div>
+</div>

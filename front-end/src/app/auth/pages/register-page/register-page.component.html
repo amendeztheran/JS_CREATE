@@ -1,0 +1,130 @@
+<script src="register.js" defer></script>
+
+
+<div class="body">
+    <div class="container-form">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Si ya tienes cuenta, por favor inicia sesión</p>
+                <a routerLink="auth/login">
+                    <button>Iniciar Sesión</button>
+                </a>
+            </div>
+        </div>
+        <!-- formulario de registro -->
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Crear una cuenta</h2>
+                <p>Ingresa tus datos para registrarte</p>
+
+                <form class="form was-validated" [formGroup]="person" (ngSubmit)="registro()">
+
+                    <!-- tipo de documento -->
+                    <label>
+                        <i class='bx bx-id-card'></i>
+                        <select formControlName="tip_doc" [class.is-invalid]="tip_docNovalid">
+                            <option value="">Tipo de Documento</option>
+                            <option value="CC">Cedula de Ciudadania</option>
+                            <option value="CE">Cedula de Extranjeria</option>
+                            <option value="PE">Pasaporte</option>
+                        </select>
+                        <div class="alerta" *ngIf="tip_docNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+
+                    <!-- numero de documento -->
+                    <label>
+                        <i class='bx bxs-id-card'></i>
+                        <input type="text" placeholder="Numero de documento" formControlName="num_doc"
+                            [class.is-invalid]="num_docNovalid">
+                        <div class="alerta" *ngIf="num_docNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+
+                    <!-- nombres -->
+                    <label>
+                        <i class='bx bx-user'></i>
+                        <input type="text" placeholder="Nombres" formControlName="nombre"
+                            [class.is-invalid]="nombreNovalid">
+                        <div class="alerta" *ngIf="nombreNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+
+                    <!-- apellidos -->
+                    <label>
+                        <i class='bx bx-user'></i>
+                        <input type="text" placeholder="Apellidos" formControlName="apellido">
+                        <div class="alerta" *ngIf="apellidoNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+
+                    <!-- email -->
+                    <!-- mensajes de validaciones -->
+                    <div class="validaciones" *ngIf="correoNovalid">
+                        <small> El E-mail debe ser válido </small>
+                    </div>
+                    <label>
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" placeholder="Correo Electronico" formControlName="correo">
+                        <div class="alerta" *ngIf="correoNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+
+                    <div class="validaciones" *ngIf="contrasenaNovalid">
+                        <small>Debe ser de longitud mínima 5,tener letras mayúsculas, minúsculas y números </small>
+                    </div>
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" placeholder="Contraseña" formControlName="contrasena">
+                        <div class="alerta" *ngIf="contrasenaNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+                    <!-- confirmacion de contraseña -->
+                    <!-- mensajes de validaciones -->
+                    <div class="validaciones" *ngIf="passConfNovalid">
+                        <span>Las contraseñas no coinciden</span>
+                    </div>
+
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" placeholder="Confirmación de contraseña" formControlName="passConf">
+                        <div class="alerta" *ngIf="passConfNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+
+                    <button type="submit">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div [ngClass]="{'overlaySV': authError, 'overlayNV': !authError}">
+        <div class="popup">
+            <a (click)="cambiarEstado()" class="btn-cerrar-popup">
+                <i class='bx bx-x'></i>
+            </a>
+            <h3>Registro inválido</h3>
+            <p>Tu correo ya esta registrado en la base de datos</p>
+            <button routerLink='/auth/login'>Iniciar Sesion</button>
+        </div>
+    </div>
+    <div [ngClass]="{'overlaySV': authGood, 'overlayNV': !authGood}">
+        <div class="popup">
+            <a (click)="cambiarEstado()" class="btn-cerrar-popup">
+                <i class='bx bx-x'></i>
+            </a>
+            <h3>Registro Exitoso!</h3>
+            <p>Bienvenido a nuestra comunidad, para empezar por favor inicia sesion</p>
+            <button routerLink='/auth/login'>Iniciar Sesion</button>
+        </div>
+    </div>
+</div>
+
+<!-- <app-footer></app-footer> -->

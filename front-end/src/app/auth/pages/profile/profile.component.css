@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    justify-content: center;/*Centrar*/
+    /*Espacio entre las dos columnnas*/
+    grid-template-columns: 1fr 1fr;/*Columnas*/
+    max-width: 1100px; /*El encabezado cambie de color al bajar la barra derecha de vista.*//**/
+    padding: 2%; 
+    font-size: 1.0325rem; /*Tamaño de letra*/
+    font-family: helvetica;
+}
+
+.image{
+    height: 200px;
+    width: 200px;
+    margin:auto;/*Centrar imagen*/
+    padding: 8%;/*Espacio superio de imagen*/
+}
+
+.row{
+    margin: auto;
+}
+
+.regular-button{
+    background-color: rgb(5, 179, 77);
+    font-weight: bold;
+    font-family:helvetica;
+    font-size: 15.4px;   /*Tamaño de la letra*/
+    color: white;
+    cursor: pointer;
+}

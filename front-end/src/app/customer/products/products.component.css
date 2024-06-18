@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+    display: grid;
+    max-width: 1100px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-top: 8%;
+}
+.card {
+    margin: 20px;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+}
+.price {
+    text-align: justify;
+    margin: 10px;
+}
+.image {
+    height: 210px;
+    width: 100%;
+}
+.boton {
+    background-color: #411794;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 18px;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    height: 37px;
+    /* Ajusta la altura según tus necesidades */
+    width: 200px;
+    /* Ajusta el ancho según tus necesidades */
+}
+.cart-icon {
+    margin-right: 10px;
+    /* Ajusta el valor según el espacio deseado */
+}

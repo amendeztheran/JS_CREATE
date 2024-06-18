@@ -1,0 +1,5 @@
+.error-message {
+    font-size: 14px; /* Establece el tamaño de letra deseado */
+    margin-top: 4px; /* Establece el margen superior deseado */
+    color: red; /* Establece el color de texto deseado */
+  }

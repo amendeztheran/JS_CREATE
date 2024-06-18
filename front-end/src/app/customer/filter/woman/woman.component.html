@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="container">
+    <div *ngFor="let detalleProducto of listaProductos" class="card"> 
+        <figure>
+            <img class="image" src="{{detalleProducto.url}}" (click)="productDetail(detalleProducto)">
+        </figure> 
+        <div class="info">
+            <h4>{{detalleProducto.title}}</h4>
+            <p class="price">$ {{detalleProducto.price}}</p>
+        </div>      
+    </div>
+</div>   
+

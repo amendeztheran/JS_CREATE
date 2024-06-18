@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+<title>Correo electrónico</title>
+<div class="modal-container">
+    <form [formGroup]="datos">
+        <div class="row justify-content-center">
+            <div class="col-lg-20">
+                <h2 style="color: rgb(0, 0, 0); font-weight: bold; padding: 5px;">Datos del usuario</h2><br><br>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <!-- No borrar
+                        <div>
+                        <img src="../../../../assets/mensajeria.png" class="imagenDireccion">
+                        </div> -->
+                    <!--<b><br><p style="text-align: justify;">Dirección de envío </p></b>-->
+                    <div style="text-align: justify; margin-bottom: 1%; font-size: 122%; color: rgb(0, 0, 0);">
+                        <h5 style="color: rgb(0, 0, 0); font-weight: bold;">Hola &nbsp;{{ username }}!</h5>
+                    </div><br>
+
+                    <textarea class="form-control mb-2"
+                        placeholder="Escriba su dirección de residencia para la entrega de su pedido " cols="40"
+                        rows="3" formControlName="mensaje" style="width: 70%;"></textarea>
+                </div>
+                <br>
+                <br>
+                <!--Resumen de pedido-->
+                <div class="form-control mb-2 mensaje-predefinido">
+                    <table class="table-light">
+                        <thead>
+                            <tr>
+                                <th colspan="6">
+                                    <h5
+                                        style="text-align: center; font-weight: bold; background-color: rgb(192, 240, 224);">
+                                        Resumen de pedido</h5>
+                                </th>
+                            </tr>
+                        </thead><!--colspan= "6": es para combinar las columnas y centrar.-->
+                        <thead>
+                            <tr
+                                style="background-color: rgb(255, 255, 255); text-align: center; border-top: 10px solid transparent; border-bottom: 10px solid transparent; color: rgb(173, 173, 173);">
+                                <th scope="col">Producto</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Decripción</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of cartProducts">
+                                <td><img src="{{ product.url }}" alt="{{ product.title }}"
+                                        style="max-width: 100px; max-height: 100px;"></td>
+                                <td style="border: 1px solid #dddddd;">{{ product.title }}</td>
+                                <td style="border: 1px solid #dddddd;" class="description">{{ product.descrip }}</td>
+                                <td style="border: 1px solid #dddddd;">{{ product.price | currency }}</td>
+                                <td style="text-align: center; border: 1px solid #dddddd;">{{ product.cantidad }}</td>
+                                <td>{{ product.price * product.cantidad | currency }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="justify-content: space-between; font-weight: bold;">
+                                    <a>Valor total:</a>
+                                    <a style="margin-left: 500px;">{{ calcularTotalPedido() | currency }}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <thead></thead>
+                    </table>
+                </div>
+                <div class="text-center p-2">
+                    <button class="btn btn-dark botonEmail" (click)="confirmarPedido()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+body {
+    background-color: black;
+    margin: 0;
+}
+
+.footer {
+    padding: 10px 0;
+}
+
+.footer .social {
+    text-align: center;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.footer .social a {
+    font-size: 24px;
+    color: #fff;
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+}
+
+.footer .social a:hover {
+    opacity: 0.9;
+}
+
+.tel {
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    opacity: 0.2;
+}

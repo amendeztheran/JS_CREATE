@@ -1,0 +1,58 @@
+.modal-container h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  /* Cambia la fuente del h2 */
+  font-size: 24px;
+  /* Tamaño de la fuente del h2 */
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(207, 206, 206);
+}
+
+.modal-container p,
+td {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 17px;
+}
+
+.modal-container th {
+  text-align: center;
+}
+
+.modal-container td.description {
+  max-width: 200px;
+  /* Cambia este valor según el tamaño deseado */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: justify;
+}
+
+.modal-container .botonEmail {
+  background: rgb(0, 0, 0);
+}
+
+.modal-container img.imagenDireccion {
+  width: 70px;
+  /* Define el ancho de la imagen */
+  height: auto;
+  /* Mantén la proporción de aspecto */
+  margin-right: 10px;
+}
+
+/*Nombre del cliente*/
+/*Letra personalizada*/
+@font-face {
+  font-family: inlove;
+  font-size: 200%;
+  src: url(../template/resources/inlove.ttf);
+}
+
+.modal-container h5.name-customer {
+  font-family: inlove;
+  font-size: 120%;
+  color: black;
+}
+
+.modal-container .foto1 {
+  width: 150px;
+  height: auto;
+}

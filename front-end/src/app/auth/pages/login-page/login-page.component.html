@@ -1,0 +1,47 @@
+<script src="login.js" defer></script>
+<div class="body">
+    <div class="container-form">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Si aun no tienes una cuenta por favor registrese aquí</p>
+                <a routerLink="/auth/register">
+                    <button>Registrarme</button>
+                </a>
+            </div>
+        </div>
+        <div id="login-form" class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar Sesion</h2>
+                <p>Inicia Sesion con una cuenta</p>
+                <form class="form" [formGroup]="usuario">
+                    <label>
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" placeholder="Correo Electronico" formControlName="email">
+                        <div class="alerta" *ngIf="correoNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" placeholder="Contraseña" formControlName="password">
+                        <div class="alerta" *ngIf="contrasenaNovalid">
+                            <i class='bx bx-error-circle bx-tada bx-rotate-90' style='color:#9a0707'></i>
+                        </div>
+                    </label>
+                    <button class="submit" (click)="login()">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div [ngClass]="{'overlaySV': errorauth, 'overlayNV': !errorauth}">
+        <div class="popup">
+            <a class="btn-cerrar-popup" (click)="cambiarEstado()">
+                <i class='bx bx-x'></i>
+            </a>
+            <h3>Error al iniciar sesion</h3>
+            <p>Tu contraseña es inválida o aun no estás registrado</p>
+            <button routerLink='/auth/register'>Registarse</button>
+        </div>
+    </div>
+</div>
